@@ -1,10 +1,31 @@
 package Registro;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class LogIn extends javax.swing.JFrame {
+
+    public static ArrayList<Persona> personas = new ArrayList();
 
     //fila 2 silla 12
     public LogIn() {
         initComponents();
+
+        personas.add(new Empleado(
+                12, "Supervisor", "Eduardo Enrique Castellon Molina",
+                "Tinker100", "h", "Francizco Morazan", new Date(2005, 9, 19)));
+        /*
+        Empleado:   Eduardo Enrique Castellon Molina 
+                    contra: Tinker100
+         */
+        personas.add(new Civil(
+                "Melvin Joel Castro Rosas",
+                "Manolo1000", "h", "Francizco Morazan", new Date(2004, 3, 24)));
+        /*
+        Civi:   Melvin Joel Castro Rosas
+                contra: Manolo1000
+         */
+
     }
 
     @SuppressWarnings("unchecked")
@@ -188,11 +209,15 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void L_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L_NombreActionPerformed
-        
+
     }//GEN-LAST:event_L_NombreActionPerformed
 
     private void B_EntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_EntrarMouseClicked
-        
+
+        String nombre = L_Nombre.getText();
+        String contra = LP_contra.getText();
+
+
     }//GEN-LAST:event_B_EntrarMouseClicked
 
     private void B_SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_SalirMouseClicked
