@@ -2,6 +2,7 @@ package Registro;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class LogIn extends javax.swing.JFrame {
 
@@ -12,14 +13,14 @@ public class LogIn extends javax.swing.JFrame {
         initComponents();
 
         personas.add(new Empleado(
-                12, "Supervisor", "Eduardo Enrique Castellon Molina",
+                12, "Supervisor", "Eduardo Castellon",
                 "Tinker100", "h", "Francizco Morazan", new Date(2005, 9, 19)));
         /*
         Empleado:   Eduardo Enrique Castellon Molina 
                     contra: Tinker100
          */
         personas.add(new Civil(
-                "Melvin Joel Castro Rosas",
+                "Melvin Rosas",
                 "Manolo1000", "h", "Francizco Morazan", new Date(2004, 3, 24)));
         /*
         Civi:   Melvin Joel Castro Rosas
@@ -32,6 +33,9 @@ public class LogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MenuEmpleados = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        MenuCiviles = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -45,6 +49,41 @@ public class LogIn extends javax.swing.JFrame {
         B_Salir = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         LP_contra = new javax.swing.JPasswordField();
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout MenuEmpleadosLayout = new javax.swing.GroupLayout(MenuEmpleados.getContentPane());
+        MenuEmpleados.getContentPane().setLayout(MenuEmpleadosLayout);
+        MenuEmpleadosLayout.setHorizontalGroup(
+            MenuEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        MenuEmpleadosLayout.setVerticalGroup(
+            MenuEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout MenuCivilesLayout = new javax.swing.GroupLayout(MenuCiviles.getContentPane());
+        MenuCiviles.getContentPane().setLayout(MenuCivilesLayout);
+        MenuCivilesLayout.setHorizontalGroup(
+            MenuCivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        MenuCivilesLayout.setVerticalGroup(
+            MenuCivilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -217,6 +256,48 @@ public class LogIn extends javax.swing.JFrame {
         String nombre = L_Nombre.getText();
         String contra = LP_contra.getText();
 
+        boolean existePersona = false;
+        for (Persona persona : personas) {
+            if (persona.getNombre().equals(nombre)) {
+                existePersona = true;
+            }
+
+        }
+        if (existePersona) {
+
+            int cont = 0;
+            int index = 0;
+            boolean buscandoContra = true;
+            for (Persona persona : personas) {
+                if (persona.getNombre().equals(nombre)) {
+                    if (persona.getContra().equals(contra)) {
+                        buscandoContra = false;
+                        index = cont;
+                    }
+                }
+                cont++;
+            }
+            if (buscandoContra) {
+                JOptionPane.showMessageDialog(rootPane, "Contraseña incorrecta");
+            } else {
+
+                if (personas.get(index) instanceof Empleado) {
+                    jPanel1.show(false);
+                    MenuEmpleados.setVisible(true);
+
+                }
+                if (personas.get(index) instanceof Civil) {
+                    jPanel1.show(false);
+                    MenuCiviles.setVisible(true);
+
+                }
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "El nombre es invalido");
+        }
+
 
     }//GEN-LAST:event_B_EntrarMouseClicked
 
@@ -265,6 +346,8 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel B_Salir;
     private javax.swing.JPasswordField LP_contra;
     private javax.swing.JTextField L_Nombre;
+    private javax.swing.JDialog MenuCiviles;
+    private javax.swing.JDialog MenuEmpleados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -274,5 +357,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
