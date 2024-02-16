@@ -15,15 +15,15 @@ public class LogIn extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        L_Nombre = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         B_Entrar = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         B_Salir = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        LP_contra = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,16 +61,6 @@ public class LogIn extends javax.swing.JFrame {
         jLabel2.setText("Contra:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 70, 40));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Ingrese su contraseña");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 280, -1));
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -90,15 +80,15 @@ public class LogIn extends javax.swing.JFrame {
         jLabel3.setText("Nombre:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 70, 40));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("Ingrese su nombre completo");
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        L_Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        L_Nombre.setText("Ingrese su nombre completo");
+        L_Nombre.setBorder(null);
+        L_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                L_NombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 280, -1));
+        jPanel1.add(L_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 280, -1));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -173,6 +163,16 @@ public class LogIn extends javax.swing.JFrame {
 
         jPanel1.add(B_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, 30));
 
+        LP_contra.setBackground(new java.awt.Color(255, 255, 255));
+        LP_contra.setForeground(new java.awt.Color(153, 153, 153));
+        LP_contra.setBorder(null);
+        LP_contra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LP_contraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LP_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 280, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,21 +187,21 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void L_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_L_NombreActionPerformed
+        
+    }//GEN-LAST:event_L_NombreActionPerformed
 
     private void B_EntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_EntrarMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_B_EntrarMouseClicked
 
     private void B_SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_SalirMouseClicked
         this.dispose();
     }//GEN-LAST:event_B_SalirMouseClicked
+
+    private void LP_contraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LP_contraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LP_contraActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -238,6 +238,8 @@ public class LogIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel B_Entrar;
     private javax.swing.JPanel B_Salir;
+    private javax.swing.JPasswordField LP_contra;
+    private javax.swing.JTextField L_Nombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -247,7 +249,5 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
