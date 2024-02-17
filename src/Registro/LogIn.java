@@ -1,6 +1,7 @@
 package Registro;
 
 import java.awt.Panel;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -30,6 +31,7 @@ public class LogIn extends javax.swing.JFrame {
                 contra: Manolo1000
          */
         
+            
         
        DefaultComboBoxModel IdListModel = (DefaultComboBoxModel) CB_ListaId.getModel();
        IdListModel.addElement(personas.get(1).getIdentidad());
@@ -47,7 +49,7 @@ public class LogIn extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        Tab_InfoTramite = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         Tab_InfoCiv = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
@@ -81,8 +83,12 @@ public class LogIn extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel12 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Tex_NombreTram = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        Tex_DescTram = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        B_Tramitar = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -116,7 +122,7 @@ public class LogIn extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        Tab_InfoTramite.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -127,7 +133,7 @@ public class LogIn extends javax.swing.JFrame {
                 "Nombre Tramite", "Descripcion", "Fecha", "No. Identidad"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(Tab_InfoTramite);
 
         Tab_InfoCiv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -363,30 +369,91 @@ public class LogIn extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
+        Tex_NombreTram.setBackground(new java.awt.Color(255, 255, 255));
+        Tex_NombreTram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tex_NombreTramActionPerformed(evt);
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        });
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel18.setText("Nombre:");
+
+        Tex_DescTram.setBackground(new java.awt.Color(255, 255, 255));
+        Tex_DescTram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tex_DescTramActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Descripcion:");
+
+        B_Tramitar.setBackground(new java.awt.Color(102, 102, 255));
+        B_Tramitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_TramitarMouseClicked(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Tramitar");
+
+        javax.swing.GroupLayout B_TramitarLayout = new javax.swing.GroupLayout(B_Tramitar);
+        B_Tramitar.setLayout(B_TramitarLayout);
+        B_TramitarLayout.setHorizontalGroup(
+            B_TramitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, B_TramitarLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        B_TramitarLayout.setVerticalGroup(
+            B_TramitarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, B_TramitarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Tex_NombreTram)
+                            .addComponent(Tex_DescTram, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel19))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(B_Tramitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Tex_NombreTram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Tex_DescTram, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(B_Tramitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -732,13 +799,35 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         DefaultTableModel infoTab = new DefaultTableModel();
-        String titulos[] = {"Nombre Completo","No. Identidad","Fecha de Nacimiento"};
-        infoTab.setColumnIdentifiers(titulos);
+        String titulosCiv[] = {"Nombre Completo","No. Identidad","Fecha de Nacimiento"};
+        infoTab.setColumnIdentifiers(titulosCiv);
         
         Tab_InfoCiv.setModel(infoTab);
         infoTab.addRow(new Object[]{personas.get(1).getNombre(), personas.get(1).getIdentidad(), personas.get(1).getFechaNcimiento()});
                 
+        DefaultTableModel infoTarmite = new DefaultTableModel();
+        String titulosTram[] = {"Nombre de Tramite","Descripcion","Fecha","No. Identidad"};
+        
+        Tab_InfoTramite.setModel(infoTarmite);
+//        infoTarmite.addRow(new Object[]{((Civil)personas.get(1).ge;
+        
+        
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void Tex_NombreTramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tex_NombreTramActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tex_NombreTramActionPerformed
+
+    private void Tex_DescTramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tex_DescTramActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tex_DescTramActionPerformed
+
+    private void B_TramitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_TramitarMouseClicked
+        String nombreTram = Tex_NombreTram.getText();
+        String descTram = Tex_DescTram.getText();
+        
+         Tramite tramite = new Tramite(nombreTram, descTram, personas.get(1).getIdentidad(), new Date()); 
+    }//GEN-LAST:event_B_TramitarMouseClicked
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -778,6 +867,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel B_Entrar;
     private javax.swing.JPanel B_Modificar;
     private javax.swing.JPanel B_Salir;
+    private javax.swing.JPanel B_Tramitar;
     private javax.swing.JComboBox<String> CB_ListaId;
     private com.toedter.calendar.JCalendar C_Calendario;
     private javax.swing.JPasswordField LP_contra;
@@ -787,9 +877,12 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JDialog MenuCiviles;
     private javax.swing.JDialog MenuEmpleados;
     private javax.swing.JTable Tab_InfoCiv;
+    private javax.swing.JTable Tab_InfoTramite;
     private javax.swing.JTextField Tex_Contra;
     private javax.swing.JTextField Tex_Dep;
+    private javax.swing.JTextField Tex_DescTram;
     private javax.swing.JTextField Tex_Nombre;
+    private javax.swing.JTextField Tex_NombreTram;
     private javax.swing.JTextField Tex_Sexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -800,7 +893,10 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -821,7 +917,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
@@ -832,7 +927,5 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
