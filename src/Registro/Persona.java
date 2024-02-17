@@ -21,6 +21,7 @@ public class Persona {
         this.sexo = sexo;
         this.departamento = departamento;
         this.fechaNcimiento = fechaNcimiento;
+        this.identidad = crearId();
     }
 
     public String getNombre() {
@@ -60,7 +61,7 @@ public class Persona {
     }
 
     public void setIdentidad(String identidad) {
-        this.identidad = crearId();
+        this.identidad = identidad;
     }
 
     public Date getFechaNcimiento() {

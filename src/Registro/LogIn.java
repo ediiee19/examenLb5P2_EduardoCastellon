@@ -3,7 +3,9 @@ package Registro;
 import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class LogIn extends javax.swing.JFrame {
     
@@ -15,18 +17,24 @@ public class LogIn extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         personas.add(new Empleado(
                 12, "Supervisor", "Eduardo Castellon",
-                "Tinker100", "h", "Francizco Morazan", new Date(2005, 9, 19)));
+                "Tinker100", "h", "Francisco Morazán", new Date(2005, 9, 19)));
         /*
         Empleado:   Eduardo Enrique Castellon Molina 
                     contra: Tinker100
          */
         personas.add(new Civil(
                 "Melvin Rosas",
-                "Manolo1000", "h", "Francizco Morazan", new Date(2004, 3, 24)));
+                "Manolo1000", "h", "Francisco Morazán", new Date(2004, 3, 24)));
         /*
         Civi:   Melvin Joel Castro Rosas
                 contra: Manolo1000
          */
+        
+        
+       DefaultComboBoxModel IdListModel = (DefaultComboBoxModel) CB_ListaId.getModel();
+       IdListModel.addElement(personas.get(1).getIdentidad());
+       
+       CB_ListaId.setModel(IdListModel);
         
     }
     
@@ -38,8 +46,12 @@ public class LogIn extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Tab_InfoCiv = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         CB_ListaId = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
@@ -54,7 +66,7 @@ public class LogIn extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        C_Calendario = new com.toedter.calendar.JCalendar();
         B_Modificar = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -96,34 +108,71 @@ public class LogIn extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-
+                "Nombre Tramite", "Descripcion", "Fecha", "No. Identidad"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane3.setViewportView(jTable3);
+
+        Tab_InfoCiv.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre completo", "No. Identidad", "Fecha de Nacimiento"
+            }
+        ));
+        jScrollPane4.setViewportView(Tab_InfoCiv);
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Informacion de civiles:");
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Tramites:");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         jTabbedPane1.addTab("Informacion Civiles", jPanel6);
@@ -131,7 +180,17 @@ public class LogIn extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CB_ListaId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_ListaId.setBackground(new java.awt.Color(255, 255, 255));
+        CB_ListaId.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_ListaIdItemStateChanged(evt);
+            }
+        });
+        CB_ListaId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_ListaIdActionPerformed(evt);
+            }
+        });
         jPanel7.add(CB_ListaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 23, 231, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -173,7 +232,7 @@ public class LogIn extends javax.swing.JFrame {
         jPanel7.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 195, 231, 13));
         jPanel7.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 261, 231, 13));
         jPanel7.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 333, 231, 13));
-        jPanel7.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 87, 219, 187));
+        jPanel7.add(C_Calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 87, 219, 187));
 
         B_Modificar.setBackground(new java.awt.Color(102, 102, 255));
         B_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -595,7 +654,6 @@ public class LogIn extends javax.swing.JFrame {
                     MenuEmpleados.setModal(true);
                     MenuEmpleados.pack();
                     MenuEmpleados.setVisible(true);
-                    JOptionPane.showMessageDialog(rootPane, personas.get(index).getIdentidad());
                 }
                 if (personas.get(index) instanceof Civil) {
                     L_NombreBienvenido1.setText(personas.get(index).getNombre());
@@ -638,14 +696,49 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_B_CerrarSession1MouseClicked
 
     private void B_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_ModificarMouseClicked
+       
+       int index = CB_ListaId.getSelectedIndex();
         
         
-        
-        
-        
-        
-        
+       String nvNombre = Tex_Nombre.getText();
+       String nvContra = Tex_Contra.getText();
+       String nvSexo = Tex_Sexo.getText();
+       String nvDep = Tex_Dep.getText();
+       Date nvFecha = C_Calendario.getDate();
+       
+       personas.get(index).setNombre(nvNombre);
+       personas.get(index).setContra(nvContra);
+       personas.get(index).setSexo(nvSexo);
+       personas.get(index).setDepartamento(nvDep);
+       personas.get(index).setFechaNcimiento(nvFecha);
+          
     }//GEN-LAST:event_B_ModificarMouseClicked
+
+    private void CB_ListaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ListaIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_ListaIdActionPerformed
+
+    private void CB_ListaIdItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_ListaIdItemStateChanged
+        if (CB_ListaId.getSelectedItem() != null){
+            int index = CB_ListaId.getSelectedIndex();
+            
+            Tex_Nombre.setText(personas.get(index).getNombre());
+            Tex_Contra.setText(personas.get(index).getContra());
+            Tex_Sexo.setText(personas.get(index).getSexo());
+            Tex_Dep.setText(personas.get(index).getDepartamento());
+            C_Calendario.setDate(personas.get(index).getFechaNcimiento());
+        }
+    }//GEN-LAST:event_CB_ListaIdItemStateChanged
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        DefaultTableModel infoTab = new DefaultTableModel();
+        String titulos[] = {"Nombre Completo","No. Identidad","Fecha de Nacimiento"};
+        infoTab.setColumnIdentifiers(titulos);
+        
+        Tab_InfoCiv.setModel(infoTab);
+        infoTab.addRow(new Object[]{personas.get(1).getNombre(), personas.get(1).getIdentidad(), personas.get(1).getFechaNcimiento()});
+                
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -686,17 +779,18 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel B_Modificar;
     private javax.swing.JPanel B_Salir;
     private javax.swing.JComboBox<String> CB_ListaId;
+    private com.toedter.calendar.JCalendar C_Calendario;
     private javax.swing.JPasswordField LP_contra;
     private javax.swing.JTextField L_Nombre;
     private javax.swing.JLabel L_NombreBienvenido;
     private javax.swing.JLabel L_NombreBienvenido1;
     private javax.swing.JDialog MenuCiviles;
     private javax.swing.JDialog MenuEmpleados;
+    private javax.swing.JTable Tab_InfoCiv;
     private javax.swing.JTextField Tex_Contra;
     private javax.swing.JTextField Tex_Dep;
     private javax.swing.JTextField Tex_Nombre;
     private javax.swing.JTextField Tex_Sexo;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -704,6 +798,8 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -725,8 +821,9 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -735,7 +832,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
